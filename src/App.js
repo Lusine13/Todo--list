@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
+import TodoForm from "./Components/TodoForm";
+import TodoList from "./Components/TodoList";
+import TodoHideAll from "./Components/TodoHideAll";
 
 function App() {
+
+  const [todoes, setTodoes] = useState([
+    {
+      id: Math.random(),
+      text: "Name of the wind",
+      isCompleted: false
+    },
+    {
+      id: Math.random(),
+      text: "The Wise Man's Fear",
+      isCompleted: false
+    },
+    {
+      id: Math.random(),
+      text: "The Master and the Margarita",
+      isCompleted: false
+    }    
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoList todoes={todoes} />
+      <TodoHideAll />
+      <TodoForm />
     </div>
   );
 }
