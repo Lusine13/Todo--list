@@ -1,18 +1,19 @@
 import { useState } from "react";
+import './index.css';
 
 function TodoForm({onAdd}) {
     const [text, setText] = useState("");
     return (
-        <form onSubmit={(e) => {
+         <form onSubmit={(e) => {
             e.preventDefault();
             onAdd(text);
             setText("");
         }}>
-            <input type="text" value={text} onChange={(e) => {
+            <input type="text" className="adding-input" value={text} placeholder="Add a book..." onChange={(e) => {
                 setText(e.target.value);
             }}/>
-            <button>Add</button>
-        </form>
+            <button className="adding-button">Add</button>
+        </form>        
     )
 }
 

@@ -1,0 +1,16 @@
+.adding-input {
+    height: 25px;
+    width: 300px;
+}
+.adding-button {
+    border: 1px solid rgb(47, 34, 58);
+    background: rgb(47, 34, 58);
+    padding: 5px 10px 7px 10px;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;    
+    margin: 10px 0;
+    color: white;
+}

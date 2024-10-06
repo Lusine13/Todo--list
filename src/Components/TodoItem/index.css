@@ -1,0 +1,12 @@
+.button {
+    background: rgb(47, 34, 58);
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    margin-left: auto;
+}
+label {
+    display: flex;
+    margin: 12px 0;
+}

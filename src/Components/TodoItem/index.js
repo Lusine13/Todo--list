@@ -1,19 +1,22 @@
+import './index.css';
+
 function TodoItem({todo, onChange, onDelete}) {
-    return (
-        <div>
+    return (       
             <label>
+                   <span className='todo-text'>
                 <input type="checkbox" checked={todo.isCompleted} onChange={(e) => {
                     onChange({
                         ...todo,
                         isCompleted: e.target.checked
                     });
                 }} />
-                {todo.text}
-                <button onClick={() => {
+           
+              {todo.text}
+              </span>  
+                <button className="button" onClick={() => {
                     onDelete(todo);
                 }}>delete</button>
-            </label>
-        </div>
+            </label>       
     )
 }
 
