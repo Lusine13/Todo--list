@@ -1,10 +1,17 @@
-function TodoItem({todo}) {
+function TodoItem({todo, onChange, onDelete}) {
     return (
         <div>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" checked={todo.isCompleted} onChange={(e) => {
+                    onChange({
+                        ...todo,
+                        isCompleted: e.target.checked
+                    });
+                }} />
                 {todo.text}
-                <button>delete</button>
+                <button onClick={() => {
+                    onDelete(todo);
+                }}>delete</button>
             </label>
         </div>
     )

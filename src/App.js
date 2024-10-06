@@ -3,6 +3,7 @@ import './App.css';
 import TodoForm from "./Components/TodoForm";
 import TodoList from "./Components/TodoList";
 import TodoHideAll from "./Components/TodoHideAll";
+import TodoCompleted from "./Components/TodoCompleted";
 
 function App() {
 
@@ -25,7 +26,20 @@ function App() {
   ]);
   return (
     <div className="App">
-      <TodoList todoes={todoes} />
+      <TodoList 
+      todoes={todoes}
+      onDelete={(todoes) => {
+        setTodoes(todoes.filter((t) => t.id !==todoes.id));
+      }} 
+      onChange={(newTodo) => {
+        setTodoes(todoes.map((todo) => {
+          if(todo.id ===newTodo.id) {
+            return newTodo;
+          }
+          return todo;
+        }));
+      }}
+      />
       <TodoHideAll />
       <TodoForm onAdd={(text) => {
         setTodoes([
@@ -37,8 +51,10 @@ function App() {
           }
         ]);
       }}/>
+      <TodoCompleted />
     </div>
   );
 }
+        
 
 export default App;
