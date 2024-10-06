@@ -25,22 +25,24 @@ function App() {
     }    
   ]);
   return (
-    <div className="App">
+      <div className="App">
       <TodoList 
       todoes={todoes}
-      onDelete={(todoes) => {
-        setTodoes(todoes.filter((t) => t.id !==todoes.id));
+      onDelete={(todo) => {
+        setTodoes(todoes.filter((t) => t.id !== todo.id));
       }} 
       onChange={(newTodo) => {
         setTodoes(todoes.map((todo) => {
-          if(todo.id ===newTodo.id) {
+          if(todo.id === newTodo.id) {
             return newTodo;
           }
           return todo;
         }));
       }}
       />
-      <TodoHideAll />
+      <TodoHideAll todoes={todoes} onHideCompleted={() => {
+        setTodoes([]);
+      }} />
       <TodoForm onAdd={(text) => {
         setTodoes([
           ...todoes,
@@ -51,7 +53,9 @@ function App() {
           }
         ]);
       }}/>
-      <TodoCompleted />
+      <TodoCompleted todoes={todoes} onClearCompleted={() => {
+        setTodoes(todoes.filter((todo) => !todo.isCompleted));
+      }}/>
     </div>
   );
 }

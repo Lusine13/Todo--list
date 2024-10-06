@@ -1,8 +1,8 @@
-function TodoHideAll() {
+function TodoHideAll({onHideCompleted}) {
     return (
         <div>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" onClick={onHideCompleted} />
                 Hide all books
             </label>
         </div>

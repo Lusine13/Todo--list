@@ -1,8 +1,10 @@
-function TodoCompleted() {
+function TodoCompleted({todoes, onClearCompleted}) {
+
+   const completedSize = todoes.filter((todo) => todo.isCompleted).length;
     return (
         <div>
-            <span>1/4 Completed</span>
-            <button>Clear Completed</button>
+            <span>{completedSize}/{todoes.length} Completed</span>
+            <button onClick={onClearCompleted}>Clear Completed</button>
         </div>
     )
 }
